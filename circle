@@ -1,0 +1,25 @@
+import sys
+from PyQt5 import uic
+from PyQt5.QtWidgets import QApplication, QWidget
+
+
+class DrawCircle(QWidget):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('Ul.ui', self)
+        self.flag = False
+        self.pushButton.clicked.connect(self.run)
+
+    def run(self):
+        self.flag = True
+        self.update()
+
+    def paintEvent(self):
+        if self.flag:
+            pass
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ex = DrawCircle()
+    ex.show()
+    sys.exit(app.exec())
